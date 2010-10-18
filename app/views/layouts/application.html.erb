@@ -7,8 +7,12 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
+         <p class="notice"><%= notice %></p>
          <p class="alert"><%= alert %></p>
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= link_to "logout", destroy_user_session_path %>
+        <% end %>
 <%= yield %>
 
 </body>
